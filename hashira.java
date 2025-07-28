@@ -6,15 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class SecretFinder {
-
-    /**
-     * A simple record to hold a point's coordinates using BigInteger.
-     */
     record Point(BigInteger x, BigInteger y) {}
-
-    /**
-     * Main method to run the solver on both test cases.
-     */
     public static void main(String[] args) {
         String testCase1 = """
         {
