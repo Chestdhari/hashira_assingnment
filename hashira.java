@@ -60,7 +60,6 @@ public class SecretFinder {
                         new BigInteger(value, base)
                     ));
                 } catch (Exception e) {
-                    // Skip points with invalid formats
                 }
             }
         }
@@ -87,10 +86,10 @@ public class SecretFinder {
         int valueStartIndex = keyIndex + searchKey.length();
         char firstChar = json.charAt(valueStartIndex);
 
-        if (firstChar == '"') { // It's a string value
+        if (firstChar == '"') {
             int valueEndIndex = json.indexOf('"', valueStartIndex + 1);
             return json.substring(valueStartIndex + 1, valueEndIndex);
-        } else if (firstChar == '{') { // It's a nested object
+        } else if (firstChar == '{') { 
             int braceCount = 1;
             int currentPos = valueStartIndex + 1;
             while (braceCount > 0 && currentPos < json.length()) {
@@ -117,7 +116,7 @@ public class SecretFinder {
         for (int i = start; i < allPoints.size(); i++) {
             currentCombo.add(allPoints.get(i));
             generateCombinations(allPoints, k, i + 1, currentCombo, frequencies);
-            currentCombo.remove(currentCombo.size() - 1); // Backtrack
+            currentCombo.remove(currentCombo.size() - 1); 
         }
     }
 
